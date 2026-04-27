@@ -1,0 +1,38 @@
+/* src/components/ui/GlitchText.module.css */
+.title {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 900;
+  color: var(--green);
+  letter-spacing: -1px;
+  text-shadow: 0 0 30px rgba(0, 255, 65, 0.4);
+  margin-bottom: 48px;
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.text {
+  position: relative;
+  z-index: 1;
+}
+
+.g1, .g2, .g3 {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.g1::before, .g2::before, .g3::before {
+  content: attr(data-text);
+  display: block;
+}
+
+.g1 { color: #00ff41; clip-path: polygon(0 0,   100% 0,   100% 28%, 0 28%); }
+.g2 { color: #ffffff; clip-path: polygon(0 28%,  100% 28%,  100% 55%, 0 55%); }
+.g3 { color: #00ffff; clip-path: polygon(0 55%,  100% 55%,  100% 80%, 0 80%); }
+
+:global(.glitching) .g1 { animation: gLayer1 0.7s steps(1) forwards; }
+:global(.glitching) .g2 { animation: gLayer2 0.7s steps(1) forwards; }
+:global(.glitching) .g3 { animation: gLayer3 0.7s steps(1) forwards; }
