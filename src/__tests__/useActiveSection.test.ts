@@ -35,7 +35,7 @@ test('updates active id when a section intersects', () => {
   );
   act(() => {
     observerCallback(
-      [{ isIntersecting: true, target: document.getElementById('about')! }] as IntersectionObserverEntry[],
+      [{ isIntersecting: true, target: document.getElementById('about')! }] as unknown as IntersectionObserverEntry[],
       {} as IntersectionObserver
     );
   });
@@ -48,7 +48,7 @@ test('does not update when entry is not intersecting', () => {
   );
   act(() => {
     observerCallback(
-      [{ isIntersecting: false, target: document.getElementById('about')! }] as IntersectionObserverEntry[],
+      [{ isIntersecting: false, target: document.getElementById('about')! }] as unknown as IntersectionObserverEntry[],
       {} as IntersectionObserver
     );
   });
