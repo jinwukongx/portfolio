@@ -1,0 +1,6 @@
+/* src/components/sections/Experience.module.css */
+.section { min-height: 100vh; padding: 100px 80px 60px; display: flex; flex-direction: column; justify-content: center; border-top: 1px solid rgba(0, 255, 65, 0.08); }
+.tag { font-size: 10px; letter-spacing: 5px; color: rgba(0, 255, 65, 0.4); text-transform: uppercase; margin-bottom: 12px; }
+.timeline { position: relative; padding-left: 0; }
+.timeline::before { content: ''; position: absolute; left: -1px; top: 0; bottom: 0; width: 1px; background: linear-gradient(180deg, var(--green), rgba(0, 255, 65, 0.1)); }
+@media (max-width: 767px) { .section { padding: 80px 24px 40px; } }

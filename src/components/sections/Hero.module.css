@@ -1,0 +1,106 @@
+/* src/components/sections/Hero.module.css */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  z-index: 5;
+  padding: 0 80px;
+}
+
+.tag {
+  font-size: 11px;
+  letter-spacing: 6px;
+  color: rgba(0, 255, 65, 0.5);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.cursor { animation: blink 1s step-end infinite; }
+
+.name {
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 900;
+  color: var(--green);
+  text-shadow: 0 0 40px rgba(0, 255, 65, 0.6), 0 0 80px rgba(0, 255, 65, 0.2);
+  letter-spacing: -2px;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+}
+
+.g1, .g2 {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  pointer-events: none;
+}
+
+.g1 { color: rgba(0, 255, 65, 0.8); animation: nameGlitch1 4s infinite; clip-path: polygon(0 20%, 100% 20%, 100% 30%, 0 30%); }
+.g2 { color: rgba(255,255,255,0.6); animation: nameGlitch2 4s infinite; clip-path: polygon(0 65%, 100% 65%, 100% 70%, 0 70%); }
+
+.sub {
+  margin-top: 16px;
+  font-size: clamp(14px, 2vw, 20px);
+  color: rgba(0, 255, 65, 0.6);
+  letter-spacing: 4px;
+}
+
+.role {
+  margin-top: 8px;
+  font-size: 13px;
+  color: rgba(0, 255, 65, 0.4);
+  letter-spacing: 2px;
+}
+
+.line {
+  margin-top: 32px;
+  width: 80px; height: 1px;
+  background: linear-gradient(90deg, var(--green), transparent);
+  box-shadow: 0 0 8px rgba(0, 255, 65, 0.4);
+}
+
+.cta { margin-top: 40px; display: flex; gap: 16px; }
+
+.btn {
+  padding: 12px 28px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: none;
+  border: none;
+  transition: box-shadow 0.2s;
+}
+
+.btnPrimary { background: var(--green); color: #000; box-shadow: 0 0 20px rgba(0, 255, 65, 0.4); }
+.btnPrimary:hover { box-shadow: 0 0 32px rgba(0, 255, 65, 0.7); }
+.btnSecondary { background: transparent; color: var(--green); border: 1px solid rgba(0, 255, 65, 0.4); }
+.btnSecondary:hover { border-color: var(--green); box-shadow: 0 0 12px rgba(0, 255, 65, 0.2); }
+
+.scrollHint {
+  position: absolute;
+  bottom: 40px; left: 0;
+  font-size: 10px;
+  color: rgba(0, 255, 65, 0.3);
+  letter-spacing: 3px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.scrollLine {
+  width: 40px; height: 1px;
+  background: rgba(0, 255, 65, 0.3);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@media (max-width: 767px) {
+  .content { padding: 0 24px; }
+  .cta { flex-direction: column; }
+}
