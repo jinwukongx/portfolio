@@ -1,0 +1,170 @@
+/* src/app/globals.css */
+:root {
+  --green: #00ff41;
+  --green-dim: rgba(0, 255, 65, 0.4);
+  --green-faint: rgba(0, 255, 65, 0.12);
+  --bg: #000000;
+  --font-mono: 'Courier New', Courier, monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--green);
+  font-family: var(--font-mono);
+  cursor: none;
+  overflow-x: hidden;
+}
+
+/* Global scanlines — sits above everything except cursor */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9000;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 65, 0.012) 2px,
+    rgba(0, 255, 65, 0.012) 4px
+  );
+}
+
+/* ── Global keyframes (referenced by CSS modules by name) ── */
+
+@keyframes revealHeavy {
+  0%   { opacity: 0; transform: translateY(28px) translateX(0); filter: blur(3px); clip-path: none; }
+  12%  { opacity: 1; transform: translateY(-3px) translateX(0); filter: blur(0); }
+  14%  { opacity: 0.2; transform: translateY(-3px) translateX(-14px); filter: blur(1px); clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%); }
+  16%  { opacity: 0.9; transform: translateY(-3px) translateX(10px); filter: blur(0); clip-path: polygon(0 35%, 100% 35%, 100% 70%, 0 70%); }
+  18%  { opacity: 0.4; transform: translateY(-3px) translateX(-6px); clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0 100%); }
+  20%  { opacity: 1; transform: translateY(-3px) translateX(0); clip-path: none; }
+  26%  { opacity: 0.3; transform: translateY(-3px) translateX(18px); filter: blur(2px); clip-path: polygon(0 10%, 100% 10%, 100% 45%, 0 45%); }
+  28%  { opacity: 0.8; transform: translateY(-3px) translateX(-12px); filter: blur(0); clip-path: polygon(0 45%, 100% 45%, 100% 80%, 0 80%); }
+  30%  { opacity: 1; transform: translateY(-3px) translateX(0); clip-path: none; }
+  42%  { opacity: 1; transform: translateY(0) translateX(0); filter: blur(0); clip-path: none; }
+  100% { opacity: 1; transform: translateY(0) translateX(0); filter: blur(0); clip-path: none; }
+}
+
+@keyframes gLayer1 {
+  0%   { opacity: 0; transform: translateX(0); }
+  5%   { opacity: 1; transform: translateX(-16px); }
+  12%  { opacity: 1; transform: translateX(12px); }
+  18%  { opacity: 0.7; transform: translateX(-8px); }
+  25%  { opacity: 1; transform: translateX(20px); }
+  32%  { opacity: 0.4; transform: translateX(-4px); }
+  40%  { opacity: 1; transform: translateX(8px); }
+  50%  { opacity: 0; transform: translateX(0); }
+  100% { opacity: 0; }
+}
+
+@keyframes gLayer2 {
+  0%   { opacity: 0; transform: translateX(0); }
+  8%   { opacity: 1; transform: translateX(18px); }
+  15%  { opacity: 1; transform: translateX(-14px); }
+  22%  { opacity: 0.8; transform: translateX(10px); }
+  30%  { opacity: 1; transform: translateX(-20px); }
+  38%  { opacity: 0.5; transform: translateX(6px); }
+  45%  { opacity: 0; transform: translateX(0); }
+  100% { opacity: 0; }
+}
+
+@keyframes gLayer3 {
+  0%   { opacity: 0; transform: translateX(0); }
+  10%  { opacity: 1; transform: translateX(-22px); }
+  18%  { opacity: 0.9; transform: translateX(16px); }
+  26%  { opacity: 1; transform: translateX(-10px); }
+  34%  { opacity: 0.6; transform: translateX(14px); }
+  42%  { opacity: 0; transform: translateX(0); }
+  100% { opacity: 0; }
+}
+
+@keyframes noisePulse {
+  0%   { opacity: 0.18; }
+  10%  { opacity: 0.08; }
+  20%  { opacity: 0.22; }
+  35%  { opacity: 0.05; }
+  50%  { opacity: 0.15; }
+  70%  { opacity: 0.03; }
+  100% { opacity: 0; }
+}
+
+@keyframes tearFlash {
+  0%   { opacity: 0; top: 20%; }
+  10%  { opacity: 0.8; top: 20%; }
+  20%  { opacity: 0; top: 20%; }
+  30%  { opacity: 0.6; top: 55%; }
+  40%  { opacity: 0; top: 55%; }
+  60%  { opacity: 0.4; top: 75%; }
+  80%  { opacity: 0; top: 75%; }
+  100% { opacity: 0; }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes bootLineIn {
+  to { opacity: 1; }
+}
+
+@keyframes bootProgress {
+  to { width: 100%; }
+}
+
+@keyframes bootFade {
+  to { opacity: 0; pointer-events: none; }
+}
+
+@keyframes heroIn {
+  to { opacity: 1; }
+}
+
+@keyframes nameGlitch1 {
+  0%, 90%, 100% { transform: none; opacity: 0; }
+  91%  { transform: translateX(-4px); opacity: 1; }
+  93%  { transform: translateX(4px);  opacity: 1; }
+  95%  { transform: none; opacity: 0; }
+}
+
+@keyframes nameGlitch2 {
+  0%, 85%, 100% { transform: none; opacity: 0; }
+  86%  { transform: translateX(6px);  opacity: 1; }
+  89%  { transform: translateX(-2px); opacity: 1; }
+  92%  { transform: none; opacity: 0; }
+}
+
+@keyframes scrollPulse {
+  50% { width: 60px; opacity: 0.6; }
+}
+
+@keyframes toastIn {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes toastOut {
+  to { opacity: 0; transform: translateX(-20px); }
+}
+
+@keyframes terminalSlideUp {
+  to { transform: translateY(0); }
+}
+
+@keyframes terminalSlideDown {
+  to { transform: translateY(100%); }
+}
+
+@keyframes fillBar {
+  to { width: var(--target-width); }
+}
