@@ -1,0 +1,10 @@
+/* src/components/ui/RevealWrapper.module.css */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(3px);
+}
+
+.visible {
+  animation: revealHeavy 0.8s steps(1) forwards;
+}
