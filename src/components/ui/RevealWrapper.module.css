@@ -3,8 +3,11 @@
   opacity: 0;
   transform: translateY(28px);
   filter: blur(3px);
+  transition: opacity 0.6s ease, transform 0.6s ease, filter 0.4s ease;
 }
 
 .visible {
-  animation: revealHeavy 0.8s steps(1) forwards;
+  opacity: 1;
+  transform: none;
+  filter: none;
 }
