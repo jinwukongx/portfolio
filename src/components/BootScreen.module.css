@@ -1,0 +1,43 @@
+/* src/components/BootScreen.module.css */
+.boot {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px;
+  transition: opacity 0.4s ease;
+}
+
+.done { opacity: 0; pointer-events: none; }
+
+.line {
+  font-size: 13px;
+  color: var(--green);
+  letter-spacing: 1px;
+  line-height: 1.8;
+  animation: bootLineIn 0.1s ease forwards;
+}
+
+.warn { color: rgba(0, 255, 65, 0.5); }
+
+.final { color: #fff; font-size: 15px; letter-spacing: 3px; }
+
+.progressWrap {
+  margin-top: 20px;
+  width: 340px;
+  height: 2px;
+  background: rgba(0, 255, 65, 0.15);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  width: 0;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+  animation: bootProgress 1s ease forwards;
+}
