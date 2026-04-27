@@ -1,0 +1,37 @@
+/* src/components/ui/SkillBar.module.css */
+.item { display: flex; flex-direction: column; gap: 6px; }
+
+.header { display: flex; justify-content: space-between; }
+
+.name { font-size: 11px; letter-spacing: 2px; color: rgba(0, 255, 65, 0.7); }
+
+.lvl { font-size: 11px; color: var(--green); }
+
+.track {
+  height: 4px;
+  background: rgba(0, 255, 65, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+.fill {
+  height: 100%;
+  width: 0;
+  background: var(--green);
+  box-shadow: 0 0 6px var(--green);
+  position: relative;
+  --target-width: 0%;
+}
+
+.fill::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: #fff;
+  opacity: 0.8;
+}
+
+.fill.animating {
+  animation: fillBar 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
